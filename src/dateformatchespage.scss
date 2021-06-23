@@ -1,0 +1,236 @@
+$main-color: rgb(49, 39, 76); 
+$secondary-color: rgb(215, 165, 31); 
+$tertiary-color: rgb(253, 129, 150); 
+$purple-shade: rgb(58, 43, 88); 
+$purple-highlight: rgb(120, 88, 184); 
+$black-shade: rgb(50, 50, 50); 
+
+
+body {
+    background-color: $main-color !important; 
+    font-size: 16px; 
+    color: white !important; 
+}
+
+.center {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+.date-top-h2 {
+    margin: 20px 0px; 
+}
+
+.calendar-input {
+    padding: 5px 20px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    border: none; 
+    color: white; 
+    outline: none; 
+    border-radius: 5px; 
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5); 
+    transition: all 400ms ease; 
+    width: 200px; 
+
+    &:focus {
+        border-bottom: 2px solid $tertiary-color; 
+    }
+}
+
+.date-form-div {
+    width: 100%; 
+    height: auto; 
+    @extend .center; 
+    flex-direction: column; 
+}
+
+.date-matches-team-container {
+    width: 100%; 
+    height: auto; 
+    @extend .center; 
+    flex-direction: column; 
+}
+
+.date-matches-team-div {
+    justify-content: space-evenly;
+    width: 80%;
+    height: 150px;
+    @extend .center; 
+    flex-direction: column; 
+    background-color: #3a2b58;
+    border-radius: 10px;
+    margin: 20px 0px;
+    padding: 10px 0px;
+
+    .date-matches-2 {
+        width: 100%;
+        height: 150px;
+        @extend .center;
+        justify-content: space-evenly;
+        background-color: #3a2b58;
+        border-radius: 10px;
+        margin: 20px 0px;
+        padding: 10px 0px;
+    }
+
+    .left-side {
+        width: 40%; 
+        line-height: 20px; 
+        @extend .center; 
+        text-align: center; 
+        font-weight: 500; 
+    }
+
+    .mid-side {
+        width: auto; 
+        color: $tertiary-color; 
+    }
+
+    .right-side {
+        width: 40%; 
+        line-height: 20px; 
+        @extend .center; 
+        text-align: center;  
+        font-weight: 500; 
+    }
+}
+
+.team-score-container {
+    width: 80%; 
+    height: auto; 
+    @extend .center; 
+
+    #score {
+        width: 50%; 
+        text-align: center; 
+        color: $secondary-color;
+        font-weight: 100;  
+    }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1500px) {
+    .calendar-input {
+        width: 225px; 
+    }
+
+    .date-matches-team-div .date-matches-2 {
+        margin: 0px; 
+        padding: 0px; 
+        height: 50px; 
+    }
+
+    .date-matches-team-div {
+        justify-content: center;
+    }
+
+    .date-matches-team-div .left-side {
+        font-size: 1.2em; 
+    }
+
+    .date-matches-team-div .right-side {
+        font-size: 1.2em; 
+    }
+
+    .team-score-container #score {
+        font-size: 1.2em; 
+    }
+    
+    .date-matches-team-div .mid-side {
+        font-size: 1.2em; 
+    }
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 1800px) {
+    .calendar-input {
+        width: 375px; 
+        font-size: 1.25em; 
+    }
+
+    .date-matches-team-div .date-matches-2 {
+        margin: 0px; 
+        padding: 0px; 
+        height: 50px; 
+    }
+
+    .date-matches-team-div {
+        justify-content: center;
+    }
+
+    .date-matches-team-div .left-side {
+        font-size: 1.4em; 
+    }
+
+    .date-matches-team-div .right-side {
+        font-size: 1.4em; 
+    }
+
+    .team-score-container #score {
+        font-size: 1.4em; 
+    }
+    
+    .date-matches-team-div .mid-side {
+        font-size: 1.4em; 
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .calendar-input {
+        width: 450px; 
+        font-size: 1.5em; 
+    }
+
+    .date-matches-team-div .date-matches-2 {
+        margin: 0px; 
+        padding: 0px; 
+        height: 50px; 
+    }
+
+    .date-matches-team-div {
+        justify-content: center;
+    }
+
+    .date-matches-team-div .left-side {
+        font-size: 1.75em; 
+    }
+
+    .date-matches-team-div .right-side {
+        font-size: 1.75em; 
+    }
+
+    .team-score-container #score {
+        font-size: 1.75em; 
+    }
+    
+    .date-matches-team-div .mid-side {
+        font-size: 1.75em; 
+    }
+}
+
+@media only screen and (min-width: 1800px) and (max-width: 2000px) {
+    .date-matches-team-div {
+        width: 70%; 
+        height: 175px; 
+    }
+}
+
+@media only screen and (min-width: 2000px) and (max-width: 2200px) {
+    .date-matches-team-div {
+        width: 60%; 
+        height: 175px; 
+    }
+}
+
+@media only screen and (min-width: 2200px) and (max-width: 2400px) {
+    .date-matches-team-div {
+        width: 55%; 
+        height: 175px; 
+    }
+}
+
+@media only screen and (min-width: 2400px) {
+    .date-matches-team-div {
+        width: 50%; 
+        height: 175px; 
+    }
+}

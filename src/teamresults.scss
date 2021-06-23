@@ -1,0 +1,264 @@
+$main-color: rgb(49, 39, 76); 
+$secondary-color: rgb(215, 165, 31); 
+$tertiary-color: rgb(253, 129, 150); 
+$purple-shade: rgb(58, 43, 88); 
+$purple-highlight: rgb(120, 88, 184); 
+$black-shade: rgb(50, 50, 50); 
+
+body {
+    background-color: $main-color !important; 
+    font-size: 16px; 
+    color: white !important; 
+}
+
+.center {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
+.team-result-top-page {
+    width: 100%; 
+    height: auto; 
+    @extend .center; 
+    flex-direction : column; 
+
+    .team-result-img {
+        width: 75px;
+        height: auto; 
+        margin: 15px 0px; 
+    }
+
+    .team-result-top-h2 {
+        font-size: 1.5em; 
+    }
+    
+    .team-result-country {
+        color: $purple-highlight; 
+        margin-bottom: 15px; 
+    }
+    
+    .team-info-div {
+        width: 95%; 
+        height: auto; 
+        background-color: $purple-shade;
+        border-radius: 10px; 
+        margin: 30px 0px; 
+
+        .border-top-team-info {
+            width: 100%; 
+            height: auto; 
+            background-color: rgb(43, 35, 66);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px; 
+            padding: 4px 0px; 
+            padding-left: 8px; 
+        }
+
+        .team-info {
+            height: 75px; 
+            width: 100%; 
+            @extend .center; 
+
+            div {
+                width: 35px; 
+                height: 35px; 
+                border-radius: 8px; 
+                margin: 0px 10px; 
+            }
+        }
+    }
+}
+
+.team-result-bottom-page-container {
+    width: 100%; 
+    height: auto; 
+    @extend .center; 
+    flex-direction: column; 
+
+    h1 {
+        margin: 40px 0px; 
+    }
+}
+
+.team-player-grid-system {
+    width: 95%; 
+    height: auto; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(45%, 2fr));
+    justify-items: center;
+    row-gap: 25px;
+    margin-bottom: 25px; 
+
+    .player-name-img-div {
+        width: 120px ;
+        height: 150px; 
+        @extend .center; 
+        justify-content: space-evenly; 
+        flex-direction: column; 
+        background-color: $purple-shade; 
+        border-radius: 10px; 
+        cursor: pointer; 
+
+        .player-link {
+            @extend .center; 
+            flex-direction: column; 
+            width: 100%; 
+            height: 100%; 
+        }
+
+        .white-circle {
+            width: 80px; 
+            height: 80px; 
+            background-color: rgb(255, 255, 255); 
+            border-radius: 100%; 
+        }
+
+        img {
+            width: 50px; 
+            height: auto; 
+        }
+
+        div {
+            text-align: center; 
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1300px) {
+    .team-player-grid-system {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 2fr));
+        column-gap: 30px;
+    }
+}
+
+@media only screen and (min-width: 1300px) and (max-width: 1550px) {
+    .team-player-grid-system {
+        grid-template-columns: repeat(auto-fit, minmax(165px, 2fr));
+        column-gap: 30px;
+    }
+
+    .team-player-grid-system .player-name-img-div {
+        width: 165px; 
+        height: 195px; 
+    }
+
+    .team-player-grid-system .player-name-img-div .white-circle {
+        width: 100px; 
+        height: 100px; 
+    }
+
+    .team-player-grid-system .player-name-img-div img {
+        width: 65px; 
+    }
+
+    .team-player-grid-system .player-name-img-div div {
+        font-size: 1.15em; 
+    }
+
+    .team-result-top-page .team-info-div .border-top-team-info {
+        font-size: 1.25em; 
+    }
+
+    .team-result-top-page .team-info-div .team-info {
+        font-size: 1.35em; 
+    }
+
+    .team-result-top-page .team-result-img {
+        width: 90px; 
+    }
+
+    .team-result-top-h2 {
+        font-size: 2em !important; 
+    }
+
+    .team-result-top-page .team-result-country {
+        font-size: 1.15em; 
+    }
+}   
+
+@media only screen and (min-width: 1550px) /*and (max-width: 1800px)*/ {
+    .team-player-grid-system {
+        grid-template-columns: repeat(auto-fit, minmax(165px, 2fr));
+        column-gap: 75px;
+    }
+
+    .team-player-grid-system .player-name-img-div {
+        width: 165px; 
+        height: 195px; 
+    }
+
+    .team-player-grid-system .player-name-img-div .white-circle {
+        width: 100px; 
+        height: 100px; 
+    }
+
+    .team-player-grid-system .player-name-img-div img {
+        width: 65px; 
+    }
+//
+    .team-player-grid-system .player-name-img-div div {
+        font-size: 1.25em; 
+    }
+
+    .team-result-top-page .team-info-div .border-top-team-info {
+        font-size: 1.35em; 
+    }
+
+    .team-result-top-page .team-info-div .team-info {
+        font-size: 1.45em; 
+        height: 145px; 
+    }
+
+    .team-result-top-page .team-result-img {
+        width: 90px; 
+    }
+
+    .team-result-top-h2 {
+        font-size: 2.5em !important; 
+    }
+
+    .team-result-top-page .team-result-country {
+        font-size: 1.35em; 
+    }
+}   
+
+@media only screen and (min-width: 1800px) and (max-width: 2000px) {
+    .team-player-grid-system {
+        width: 85%; 
+    }
+
+    .team-result-top-page .team-info-div {
+        width: 85%; 
+    }
+}
+
+@media only screen and (min-width: 2000px) and (max-width: 2200px) {
+    .team-player-grid-system {
+        width: 75%; 
+    }
+
+    .team-result-top-page .team-info-div {
+        width: 75%; 
+    }
+}
+
+@media only screen and (min-width: 2200px) and (max-width: 2400px) {
+    .team-player-grid-system {
+        width: 55%; 
+    }
+
+    .team-result-top-page .team-info-div {
+        width: 55%; 
+    }
+}
+
+@media only screen and (min-width: 2400px) {
+    .team-player-grid-system {
+        width: 45%; 
+    }
+
+    .team-result-top-page .team-info-div {
+        width: 45%; 
+    }
+}

@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './main.scss';
+import './teamsearch.scss'; 
+import './teamresults.scss'; 
+import './player.scss'; 
+import './dateformatchespage.scss'; 
+import './findleague.scss'; 
+import './leaguecontent.scss'; 
+import { Provider } from 'react-redux'; 
+import store from './redux/store'; 
+import { Route, Switch } from 'react-router-dom';
+import PageContainer from './PageContainer';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Provider store={store}>
+        <div className="App">
+          <Route path="/" component={PageContainer} />
+        </div>
+      </Provider>
+    </Switch>
+    
   );
 }
 
