@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'; 
-import { fetchLeaguePLayerSearchIndex } from '../redux/LeagueContent/LeagueContentActions';
+import { fetchLeaguePlayerSearchIndex } from '../redux/LeagueContent/LeagueContentActions';
+import gsap from 'gsap'; 
 
-function LeagueContentPlayer({ leagueContentLoading, leagueContentPlayerId,
-                               leagueContentPlayerName, leagueContentPlayerLogo, 
-                               fetchLeaguePLayerSearchIndex }) {
+function LeagueContentPlayer({ leagueContentLoading, leagueData, 
+                               fetchLeaguePlayerSearchIndex }) {
+                        
+    //useRef 
+    const stringChecker = useRef(null); 
     
     //useState 
     const [searchState, setSearchState] = useState("");
@@ -13,32 +16,49 @@ function LeagueContentPlayer({ leagueContentLoading, leagueContentPlayerId,
     const [playerNameSearch, setPlayerNameSearch] = useState(""); 
     const [playerLogoSearch, setPlayerLogoSearch] = useState(""); 
     const [noResultDisplay, setNoResultDisplay] = useState("none"); 
-    const [backDisplay, setBackDisplay] = useState("block"); 
+    //const [backDisplay, setBackDisplay] = useState("block"); 
+
+    const [loadingDisplay, setLoadingDisplay] = useState(true); 
 
     //functions 
     const handlePlayerFormSubmit = e => {
         e.preventDefault(); 
-        setNoResultDisplay("flex"); 
-        console.log("searching for " + searchState); 
 
-        var playerid = []; 
-        var playerNames = []; 
-        var playerLogos = []; 
-
-        for (var i = 0; i < leagueContentPlayerName.length; i++) {
-            if ((leagueContentPlayerName[i].toLowerCase()).includes(searchState.toLowerCase())) {
-                playerid.push(leagueContentPlayerId[i]); 
-                playerNames.push(leagueContentPlayerName[i]); 
-                playerLogos.push(leagueContentPlayerLogo[i]); 
-                
-                setPlayerIdSearch(playerid); 
-                setPlayerNameSearch(playerNames); 
-                setPlayerLogoSearch(playerLogos); ;
-            }
+        if (searchState.trim().length <= 2) {
+            gsap.to(stringChecker.current, {opacity: 1, duration: 0.5}); 
+            setNoResultDisplay("none"); 
         }
-        setPlayerIdSearch(playerid); 
-        setPlayerNameSearch(playerNames); 
-        setPlayerLogoSearch(playerLogos); 
+
+        else {
+            gsap.to(stringChecker.current, {opacity: 0, duration: 1, delay: 0.75}); 
+
+            setLoadingDisplay(true); 
+
+            setNoResultDisplay("flex"); 
+            console.log("searching for " + searchState); 
+
+            var playerid = []; 
+            var playerNames = []; 
+            var playerLogos = []; 
+
+            for (var i = 0; i < leagueData.Teams.length; i++) {
+                for (var j = 0; j < leagueData.Teams[i].Players.length; j++) {
+                    if ((leagueData.Teams[i].Players[j].CommonName.toLowerCase()).includes(searchState.toLowerCase().trim())) {
+                        playerid.push(leagueData.Teams[i].Players[j].PlayerId); 
+                        playerNames.push(leagueData.Teams[i].Players[j].CommonName); 
+                        playerLogos.push(leagueData.Teams[i].Players[j].PhotoUrl); 
+                    }
+                }
+            }
+
+            setPlayerIdSearch(playerid); 
+            setPlayerNameSearch(playerNames); 
+            setPlayerLogoSearch(playerLogos); 
+
+            setTimeout(() => {
+                setLoadingDisplay(false); 
+            }, 1000); 
+        }
     }
 
     const handlePlayerFormChange = e => {
@@ -47,7 +67,7 @@ function LeagueContentPlayer({ leagueContentLoading, leagueContentPlayerId,
     }
 
     const handlePlayerClick = e => {  
-        fetchLeaguePLayerSearchIndex(leagueContentPlayerId[leagueContentPlayerId.indexOf(e)]);  
+        fetchLeaguePlayerSearchIndex(e); 
     }
 
     return (
@@ -56,43 +76,31 @@ function LeagueContentPlayer({ leagueContentLoading, leagueContentPlayerId,
             <form className="league-content-search-player" onSubmit={handlePlayerFormSubmit} onChange={handlePlayerFormChange}>
                 <input placeholder="Search for Player" />
                 <button>Search</button>
+                <div ref={stringChecker} className="string-checker">Enter more than 2 characters</div>
             </form>
 
             <div className="league-content-player-search-container">
                 {
                     playerNameSearch === "" || playerNameSearch.length === 0 ? 
                     
-                    <div style={{display: noResultDisplay}}>No Results</div> : 
+                    <div style={{display: noResultDisplay}}>No Results</div> 
+
+                    :
+
+                    loadingDisplay ? 
+
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <div className="loader"></div>
+                    </div>
+
+                    : 
 
                     playerNameSearch.map((x, y) => 
                         <div key={y} onClick={() => handlePlayerClick(playerIdSearch[y])} className="league-content-player-search">
                             <Link to="/Soccer-Way/player-page-2" className="league-content-link">
-                                <img alt="" src={playerLogoSearch[playerNameSearch.indexOf(x)]} />
+                                <img alt="" src={playerLogoSearch[y]} />
                                 <div>{x}</div>
                             </Link>  
-                        </div>
-                    )
-                }
-            </div>
-
-            <div className="league-content-teams-grid-container" style={{display: 'none'}}>
-                {
-                    leagueContentLoading || leagueContentPlayerName === undefined ? 
-
-                    <div>loading</div>
-
-                    : 
-
-                    leagueContentPlayerName.length === 0 ? 
-
-                    <div>No Results</div>
-
-                    :
-
-                    leagueContentPlayerName.map((x, y) => 
-                        <div key={y} className="league-content-team-grid-content">
-                            <img alt="" src={leagueContentPlayerLogo[leagueContentPlayerName.indexOf(x)]} />
-                            <p>{x}</p>
                         </div>
                     )
                 }
@@ -101,7 +109,7 @@ function LeagueContentPlayer({ leagueContentLoading, leagueContentPlayerId,
             {
                 playerNameSearch === "" || playerNameSearch.length === 0 ? 
 
-                <div className="extra-block" style={{display: backDisplay}}></div> 
+                <div className="extra-block" style={{display: "block"}}></div> 
                 :
                 <div></div>
             }
@@ -114,18 +122,7 @@ function LeagueContentPlayer({ leagueContentLoading, leagueContentPlayerId,
 const mapStateToProp = state => {
     return {
         leagueContentLoading: state.leaguecontent.loading,
-        leagueContentName: state.leaguecontent.leaguename, 
-        leagueContentAreaName: state.leaguecontent.leagueareaname, 
-        leagueContentYear: state.leaguecontent.leagueyear, 
-
-        leagueContentTeamId: state.leaguecontent.leagueteamid, 
-        leagueContentTeamName: state.leaguecontent.leagueteamname, 
-        leagueContentTeamLogo: state.leaguecontent.leagueteamlogo, 
-
-        leagueContentPlayerId: state.leaguecontent.leagueplayerid, 
-        leagueContentPlayerName: state.leaguecontent.leagueplayername, 
-        leagueContentPlayerLogo: state.leaguecontent.leagueplayerlogo, 
-        leagueContentPlayerNationality: state.leaguecontent.leagueplayernationality, 
+        leagueData: state.leaguecontent.data, 
     }
 }
 
@@ -134,7 +131,7 @@ const mapDispatchToProps = dispatch => {
         //fetchPlayersInTeam: (idx) => dispatch(fetchPlayersInTeam(idx)), 
         //fetchPlayerIndex: (idx) => dispatch(fetchPlayerIndex(idx)),
         //fetchLeagueContent: (idx) => dispatch(fetchLeagueContent(idx)),  
-        fetchLeaguePLayerSearchIndex: (idx) => dispatch(fetchLeaguePLayerSearchIndex(idx)), 
+        fetchLeaguePlayerSearchIndex: (idx) => dispatch(fetchLeaguePlayerSearchIndex(idx)), 
     }
 }
 

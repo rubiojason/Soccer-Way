@@ -1,10 +1,16 @@
-$main-color: rgb(49, 39, 76); 
-$secondary-color: rgb(215, 165, 31); 
-$tertiary-color: rgb(253, 129, 150); 
-$purple-shade: rgb(58, 43, 88); 
-$purple-highlight: rgb(120, 88, 184); 
-$black-shade: rgb(50, 50, 50); 
+$main-color: rgb(15, 15, 15); 
+$secondary-color: rgba(0, 0, 0, 0.75); 
+$tertiary-color: rgb(253, 129, 150);  
 
+.back-img {
+    position: fixed; 
+    background: url(./soccer_img.jpg) center center / cover no-repeat;
+    z-index: -20;  
+    width: 100%; 
+    height: 100%; 
+    // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    // filter: grayscale(100%);
+}
 
 body {
     background-color: $main-color !important; 
@@ -20,6 +26,7 @@ body {
 
 .date-top-h2 {
     margin: 20px 0px; 
+    color: $tertiary-color; 
 }
 
 .calendar-input {
@@ -55,20 +62,20 @@ body {
 .date-matches-team-div {
     justify-content: space-evenly;
     width: 80%;
-    height: 150px;
+    height: auto;
     @extend .center; 
     flex-direction: column; 
-    background-color: #3a2b58;
+    background-color: $secondary-color;
     border-radius: 10px;
     margin: 20px 0px;
     padding: 10px 0px;
 
     .date-matches-2 {
         width: 100%;
-        height: 150px;
+        height: auto;
         @extend .center;
         justify-content: space-evenly;
-        background-color: #3a2b58;
+        background-color: rgba(0, 0, 0, 0,);
         border-radius: 10px;
         margin: 20px 0px;
         padding: 10px 0px;
@@ -78,8 +85,27 @@ body {
         width: 40%; 
         line-height: 20px; 
         @extend .center; 
+        flex-direction: column; 
+        justify-content: space-evenly; 
         text-align: center; 
         font-weight: 500; 
+
+        img {
+            width: 55px; 
+            height: auto; 
+            order: 2; 
+        }
+
+        div {
+            order: 1; 
+            margin-bottom: 15px; 
+        }
+
+        #dis-none-score {
+            display: none; 
+            color: $tertiary-color;
+            font-weight: 100;
+        }
     }
 
     .mid-side {
@@ -91,8 +117,25 @@ body {
         width: 40%; 
         line-height: 20px; 
         @extend .center; 
+        flex-direction: column; 
+        justify-content: space-evenly; 
         text-align: center;  
         font-weight: 500; 
+
+        img {
+            width: 55px; 
+            height: auto; 
+        }
+
+        div {
+            margin-bottom: 15px; 
+        }
+
+        #dis-none-score {
+            display: none; 
+            color: $tertiary-color;
+            font-weight: 100;
+        }
     }
 }
 
@@ -104,7 +147,7 @@ body {
     #score {
         width: 50%; 
         text-align: center; 
-        color: $secondary-color;
+        color: $tertiary-color;
         font-weight: 100;  
     }
 }
@@ -114,16 +157,6 @@ body {
         width: 225px; 
     }
 
-    .date-matches-team-div .date-matches-2 {
-        margin: 0px; 
-        padding: 0px; 
-        height: 50px; 
-    }
-
-    .date-matches-team-div {
-        justify-content: center;
-    }
-
     .date-matches-team-div .left-side {
         font-size: 1.2em; 
     }
@@ -135,9 +168,52 @@ body {
     .team-score-container #score {
         font-size: 1.2em; 
     }
+
+    .date-matches-team-div .left-side #dis-none-score {
+        font-size: 1.2em; 
+    }
+
+    .date-matches-team-div .right-side #dis-none-score {
+        font-size: 1.2em; 
+    }
     
     .date-matches-team-div .mid-side {
         font-size: 1.2em; 
+    }
+
+    .date-matches-team-div .left-side {
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+
+    .date-matches-team-div .right-side {
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+
+    .date-matches-team-div .left-side img {
+        order: unset; 
+    }
+
+    .date-matches-team-div .left-side div {
+        order: unset; 
+        margin: 0px; 
+    }
+
+    .date-matches-team-div .right-side div {
+        margin: 0px; 
+    }
+
+    .date-matches-team-div .left-side #dis-none-score {
+        display: block; 
+    }
+
+    .date-matches-team-div .right-side #dis-none-score {
+        display: block; 
+    }
+
+    .team-score-container {
+        display: none; 
     }
 }
 
@@ -147,16 +223,6 @@ body {
         font-size: 1.25em; 
     }
 
-    .date-matches-team-div .date-matches-2 {
-        margin: 0px; 
-        padding: 0px; 
-        height: 50px; 
-    }
-
-    .date-matches-team-div {
-        justify-content: center;
-    }
-
     .date-matches-team-div .left-side {
         font-size: 1.4em; 
     }
@@ -168,9 +234,52 @@ body {
     .team-score-container #score {
         font-size: 1.4em; 
     }
+
+    .date-matches-team-div .left-side #dis-none-score {
+        font-size: 1.4em; 
+    }
+
+    .date-matches-team-div .right-side #dis-none-score {
+        font-size: 1.4em; 
+    }
     
     .date-matches-team-div .mid-side {
         font-size: 1.4em; 
+    }
+
+    .date-matches-team-div .left-side {
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+
+    .date-matches-team-div .right-side {
+        flex-direction: row; 
+        justify-content: space-around;
+    }
+
+    .date-matches-team-div .left-side img {
+        order: unset; 
+    }
+
+    .date-matches-team-div .left-side div {
+        order: unset; 
+        margin: 0px; 
+    }
+
+    .date-matches-team-div .right-side div {
+        margin: 0px; 
+    }
+
+    .date-matches-team-div .left-side #dis-none-score {
+        display: block; 
+    }
+
+    .date-matches-team-div .right-side #dis-none-score {
+        display: block; 
+    }
+
+    .team-score-container {
+        display: none; 
     }
 }
 
@@ -180,14 +289,14 @@ body {
         font-size: 1.5em; 
     }
 
-    .date-matches-team-div .date-matches-2 {
-        margin: 0px; 
-        padding: 0px; 
-        height: 50px; 
+    .date-matches-team-div .left-side {
+        flex-direction: row; 
+        justify-content: space-around;
     }
 
-    .date-matches-team-div {
-        justify-content: center;
+    .date-matches-team-div .right-side {
+        flex-direction: row; 
+        justify-content: space-around;
     }
 
     .date-matches-team-div .left-side {
@@ -201,9 +310,42 @@ body {
     .team-score-container #score {
         font-size: 1.75em; 
     }
+
+    .date-matches-team-div .left-side #dis-none-score {
+        font-size: 1.75em; 
+    }
+
+    .date-matches-team-div .right-side #dis-none-score {
+        font-size: 1.75em; 
+    }
     
     .date-matches-team-div .mid-side {
         font-size: 1.75em; 
+    }
+
+    .date-matches-team-div .left-side img {
+        order: unset; 
+    }
+
+    .date-matches-team-div .left-side div {
+        order: unset; 
+        margin: 0px; 
+    }
+
+    .date-matches-team-div .right-side div {
+        margin: 0px; 
+    }
+
+    .date-matches-team-div .left-side #dis-none-score {
+        display: block; 
+    }
+
+    .date-matches-team-div .right-side #dis-none-score {
+        display: block; 
+    }
+
+    .team-score-container {
+        display: none; 
     }
 }
 

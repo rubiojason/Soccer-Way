@@ -1,0 +1,336 @@
+.back-img {
+  position: fixed;
+  background: url(./soccer_img.jpg) center center/cover no-repeat;
+  z-index: -20;
+  width: 100%;
+  height: 100%;
+}
+
+.pink-back {
+  background-color: rgba(253, 129, 150, 0.9) !important;
+}
+
+body {
+  background-color: #0f0f0f !important;
+  font-size: 16px;
+  color: white !important;
+}
+
+.center, .player-top-of-page, .player-top-of-page .player-team-name, .player-info-box, .height-width-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.player-shirt-div {
+  width: 150px;
+  height: auto;
+  position: relative;
+}
+
+.player-shirt-div img {
+  width: 100%;
+  height: auto;
+}
+
+.player-shirt-div .player-shirt-number {
+  position: absolute;
+  left: 47%;
+  top: 25%;
+}
+
+.player-top-of-page {
+  width: 100%;
+  height: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.player-top-of-page .player-img-container {
+  width: 70px;
+  height: 70px;
+  background-color: black;
+  border-radius: 100%;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.player-top-of-page .player-img-container img {
+  width: 45px;
+  height: auto;
+}
+
+.player-top-of-page .player-name {
+  margin-bottom: 10px;
+}
+
+.player-top-of-page .player-team-name {
+  width: 70%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  padding: 5px 0px;
+  -webkit-transition: all 750ms ease;
+  transition: all 750ms ease;
+}
+
+.player-top-of-page .player-team-name:hover {
+  background-color: #fd8196;
+}
+
+.player-top-of-page .player-team-name img {
+  width: 20px;
+}
+
+.player-info-box {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 30px;
+  padding: 20px 0px;
+  text-align: center;
+  text-align: center;
+}
+
+.player-info-box h2 {
+  font-size: 1.15em;
+}
+
+.h-font-weight {
+  font-weight: 600;
+}
+
+.height-width-container {
+  width: 100%;
+  height: auto;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.height-width-container img {
+  width: 50px;
+}
+
+.upcoming-games-h2 {
+  margin-top: 35px;
+}
+
+.margin {
+  margin: 20px 0px;
+}
+
+.team-code {
+  font-weight: 200;
+  font-size: 0.75em;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.vs {
+  color: #fd8196;
+  width: 13%;
+}
+
+.player-info-small-box {
+  width: 40%;
+}
+
+.no-upcoming-games {
+  margin: 25px 0px;
+  color: #fd8196;
+}
+
+@media only screen and (min-width: 650px) {
+  .player-info-box div {
+    width: 100%;
+  }
+  .player-info-box div .vs {
+    width: 5%;
+  }
+  .height-width-container img {
+    margin-left: 50px;
+  }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1500px) {
+  .player-top-of-page .player-img-container {
+    width: 85px;
+    height: 85px;
+  }
+  .player-top-of-page .player-img-container img {
+    width: 50px;
+  }
+  .player-top-of-page .player-name {
+    font-size: 1.15em;
+  }
+  .player-top-of-page .player-team-name {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 45px;
+  }
+  .player-top-of-page .player-team-name img {
+    margin-right: 20px;
+    width: 25px;
+  }
+  .h-font-weight {
+    font-size: 1.15em;
+  }
+  .h-lower-font {
+    font-size: 1.1em;
+  }
+  .height-width-container div {
+    font-size: 1.1em;
+  }
+  .player-info-box h2 {
+    font-size: 1.45em;
+  }
+  .team-code {
+    font-size: .95em;
+  }
+  .vs {
+    font-size: 1.05em;
+  }
+}
+
+@media only screen and (min-width: 1500px) and (max-width: 1800px) {
+  .player-top-of-page .player-img-container {
+    width: 115px;
+    height: 115px;
+  }
+  .player-top-of-page .player-img-container img {
+    width: 75px;
+  }
+  .player-top-of-page .player-name {
+    font-size: 1.35em;
+  }
+  .player-top-of-page .player-team-name {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 65px;
+    font-size: 1.25em;
+  }
+  .player-top-of-page .player-team-name img {
+    margin-right: 20px;
+    width: 35px;
+  }
+  .h-font-weight {
+    font-size: 1.35em;
+  }
+  .h-lower-font {
+    font-size: 1.3em;
+  }
+  .height-width-container div {
+    font-size: 1.3em;
+  }
+  .player-info-box h2 {
+    font-size: 2em;
+  }
+  .team-code {
+    font-size: 1.2em;
+  }
+  .vs {
+    font-size: 1.25em;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .player-top-of-page .player-name {
+    font-size: 1.5em;
+  }
+  .player-top-of-page .player-team-name {
+    font-size: 1.45em;
+  }
+  .h-font-weight {
+    font-size: 1.5em;
+  }
+  .h-lower-font {
+    font-size: 1.5em;
+  }
+  .height-width-container div {
+    font-size: 1.5em;
+  }
+  .player-info-box h2 {
+    font-size: 2em;
+  }
+  .team-code {
+    font-size: 1.35em;
+  }
+  .vs {
+    font-size: 1.4em;
+  }
+  .player-top-of-page .player-img-container {
+    width: 130px;
+    height: 130px;
+  }
+  .player-top-of-page .player-img-container img {
+    width: 85px;
+  }
+  .player-top-of-page .player-team-name {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .player-top-of-page .player-team-name img {
+    margin-right: 40px;
+    width: 45px;
+  }
+  .height-width-container img {
+    margin-left: 100px;
+    width: 70px;
+  }
+}
+
+@media only screen and (min-width: 1900px) and (max-width: 2100px) {
+  .player-info-box {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 2100px) and (max-width: 2300px) {
+  .player-top-of-page .player-team-name {
+    width: 50%;
+  }
+  .player-info-box {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 2300px) and (max-width: 2400px) {
+  .player-top-of-page .player-team-name {
+    width: 35%;
+  }
+  .player-info-box {
+    width: 55%;
+  }
+}
+
+@media only screen and (min-width: 2400px) {
+  .player-top-of-page .player-team-name {
+    width: 30%;
+  }
+  .player-info-box {
+    width: 50%;
+  }
+}
+/*# sourceMappingURL=player.css.map */

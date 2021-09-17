@@ -1,23 +1,13 @@
-import { FETCH_TEAMS_FAILURE, FETCH_TEAMS_REQUEST, FETCH_TEAMS_SUCCESS, 
-         TEAM_ID, TEAM_NAME, COUNTRY, VENUE_NAME, FOUND, COLORS, LOGO_URL, 
-         TEAM_INDEX, TEAM_SEARCH_RESULTS, TEAM_FULL_NAME } from "./TeamsTypes"; 
+import { FETCH_TEAMS_FAILURE, FETCH_TEAMS_REQUEST, TEAM_DATA, 
+         TEAM_INDEX, TEAM_SEARCH_RESULTS } from "./TeamsTypes"; 
 
 const initialState = {
     loading: false, 
-    users: [], 
+    teamdata: [], 
     error: '', 
-    teamid: '', 
-    teamname: '', 
-    teamcountry: '', 
-    teamvenue: '', 
-    found: '', 
-    colors: '', 
-    logourl: '', 
     teamindex: '', 
-    teamidarr: '', 
     teamsearchresults: [], 
-    teamidresults: [], 
-    teamfullname: [], 
+    teamidresults: [],
 }
 
 const teamReducer = (state = initialState, action) => {
@@ -27,76 +17,21 @@ const teamReducer = (state = initialState, action) => {
                 ...state, 
                 loading: true, 
             }
-        case FETCH_TEAMS_SUCCESS: 
-            return {
-                ...state, 
-                loading: false, 
-                users: action.payload, 
-                error: '', 
-            }
 
         case FETCH_TEAMS_FAILURE: 
             return {
                 ...state, 
                 loading: false, 
-                users: [], 
+                teamdata: [], 
                 error: action.payload, 
             }
-
-        case TEAM_NAME: 
+            
+        case TEAM_DATA: 
             return {
                 ...state, 
                 loading: false, 
-                teamname: action.payload, 
-                error: '', 
-            }
-
-        case TEAM_ID: 
-            return {
-                ...state, 
-                loading: false, 
-                teamid: action.payload, 
-                error: '', 
-            }
-
-        case COUNTRY: 
-            return {
-                ...state, 
-                loading: false, 
-                teamcountry: action.payload, 
-                error: '', 
-            }
-
-        case VENUE_NAME: 
-            return {
-                ...state, 
-                loading: false, 
-                teamvenue: action.payload, 
-                error: '', 
-            }
-
-        case FOUND: 
-            return {
-                ...state, 
-                loading: false, 
-                found: action.payload, 
-                error: '', 
-            }
-
-        case COLORS: 
-            return {
-                ...state, 
-                loading: false, 
-                colors: action.payload, 
-                error: '', 
-            }
-
-        case LOGO_URL: 
-            return {
-                ...state, 
-                loading: false, 
-                logourl: action.payload, 
-                error: '', 
+                teamdata: action.payload, 
+                error: "", 
             }
 
         case TEAM_INDEX: 
@@ -109,12 +44,6 @@ const teamReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 teamsearchresults: action.payload, 
-            }
-
-        case TEAM_FULL_NAME: 
-            return {
-                ...state, 
-                teamfullname: action.payload, 
             }
 
         default: return state 

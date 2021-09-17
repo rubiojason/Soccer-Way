@@ -1,12 +1,10 @@
-import { FETCH_LEAGUES_REQUEST, FETCH_LEAGUES_FAILURE, LEAGUES_KEY, 
-         LEAGUES_NAME, LEAGUES_COUNTRY, LEAGUE_KEY_CHOSEN } from "./LeaguesTypes";
+import { FETCH_LEAGUES_REQUEST, FETCH_LEAGUES_FAILURE, LEAGUE_DATA,
+         LEAGUE_KEY_CHOSEN } from "./LeaguesTypes";
 
 const initialState = {
     loading: false, 
     error: '', 
-    leaguekey: [], 
-    leaguename: [], 
-    leaguecountry: [], 
+    data: [], 
     leaguekeychosen: "", 
 }
 
@@ -25,27 +23,11 @@ const leagueReducer = (state = initialState, action) => {
                 error: action.payload, 
             }
 
-        case LEAGUES_KEY: 
+        case LEAGUE_DATA: 
             return {
                 ...state, 
                 loading: false, 
-                leaguekey: action.payload, 
-                error: '', 
-            }
-
-        case LEAGUES_NAME: 
-            return {
-                ...state, 
-                loading: false, 
-                leaguename: action.payload, 
-                error: '', 
-            }
-
-        case LEAGUES_COUNTRY: 
-            return {
-                ...state, 
-                loading: false, 
-                leaguecountry: action.payload, 
+                data: action.payload, 
                 error: '', 
             }
 

@@ -1,16 +1,9 @@
-import { FETCH_DM_REQUEST, FETCH_DM_FAILURE, DM_HOME_TEAM, 
-         DM_AWAY_TEAM, DM_HOME_TEAM_LOGO, DM_AWAY_TEAM_LOGO, 
-         DM_HOME_TEAM_SCORE, DM_AWAY_TEAM_SCORE } from './DateMatchesTypes'; 
+import { FETCH_DM_REQUEST, FETCH_DM_FAILURE, DM_DATA  } from './DateMatchesTypes'; 
 
 const initialState = {
     loading: false, 
     error: '', 
-    hometeam: [],
-    hometeamlogo: [],  
-    hometeamscore: [], 
-    awayteam: [],
-    awayteamlogo: [], 
-    awayteamscore: [], 
+    data: [], 
 }
 
 const DmReducer = (state = initialState, action) => {
@@ -28,42 +21,12 @@ const DmReducer = (state = initialState, action) => {
                 error: action.payload, 
             }
 
-        case DM_HOME_TEAM: 
+        case DM_DATA: 
             return {
                 ...state, 
                 loading: false, 
-                hometeam: action.payload, 
-            }
-
-        case DM_AWAY_TEAM: 
-            return {
-                ...state, 
-                loading: false, 
-                awayteam: action.payload, 
-            }
-
-        case DM_HOME_TEAM_LOGO: 
-            return {
-                ...state, 
-                hometeamlogo: action.payload, 
-            }
-
-        case DM_AWAY_TEAM_LOGO: 
-            return {
-                ...state, 
-                awayteamlogo: action.payload, 
-            }
-
-        case DM_HOME_TEAM_SCORE: 
-            return {
-                ...state, 
-                hometeamscore: action.payload, 
-            }
-
-        case DM_AWAY_TEAM_SCORE: 
-            return {
-                ...state, 
-                awayteamscore: action.payload, 
+                data: action.payload, 
+                error: '', 
             }
 
         default: return state 

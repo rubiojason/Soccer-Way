@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'; 
+import HandleImg from './HandleImg';
 
-function LeagueContentTeam({ leagueContentLoading,leagueContentTeamName, leagueContentTeamLogo, 
-                             leagueContentTeamId }) {
+function LeagueContentTeam({ leagueContentLoading, leagueData }) {
 
     return (
         <div className="league-content-team-background-color">
@@ -11,16 +11,16 @@ function LeagueContentTeam({ leagueContentLoading,leagueContentTeamName, leagueC
                 <div className="league-content-teams-grid-container">
                     
                     {
-                        leagueContentLoading && leagueContentTeamName === undefined ? 
+                        leagueContentLoading && leagueData.Teams === undefined ? 
                         
-                        <div>loading</div>
+                        null
 
                         :
 
-                        leagueContentTeamName.map((x, y) => 
+                        leagueData.Teams.map((x, y) => 
                             <div key={y} className="league-content-team-grid-content" >
-                                <img alt="" src={leagueContentTeamLogo[leagueContentTeamName.indexOf(x)]} />
-                                <p>{x}</p>
+                                <HandleImg img={x.WikipediaLogoUrl} />
+                                <p>{x.Name}</p>
                             </div>
                         )
                     }
@@ -34,12 +34,7 @@ function LeagueContentTeam({ leagueContentLoading,leagueContentTeamName, leagueC
 const mapStateToProp = state => {
     return {
         leagueContentLoading: state.leaguecontent.loading, 
-        leagueContentName: state.leaguecontent.leaguename, 
-        leagueContentAreaName: state.leaguecontent.leagueareaname, 
-        leagueContentYear: state.leaguecontent.leagueyear, 
-        leagueContentTeamId: state.leaguecontent.leagueteamid, 
-        leagueContentTeamName: state.leaguecontent.leagueteamname, 
-        leagueContentTeamLogo: state.leaguecontent.leagueteamlogo, 
+        leagueData: state.leaguecontent.data, 
     }
 }
 

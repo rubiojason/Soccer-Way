@@ -1,5 +1,5 @@
-import { FETCH_LEAGUES_REQUEST, FETCH_LEAGUES_FAILURE, LEAGUES_KEY, 
-         LEAGUES_NAME, LEAGUES_COUNTRY, LEAGUE_KEY_CHOSEN } from "./LeaguesTypes";
+import { FETCH_LEAGUES_REQUEST, FETCH_LEAGUES_FAILURE, LEAGUE_DATA,
+         LEAGUE_KEY_CHOSEN } from "./LeaguesTypes";
 import axios from 'axios'; 
 
 export const fetchLeagueRequest = () => {
@@ -15,24 +15,10 @@ export const fetchLeagueFailure = error => {
     }
 }
 
-export const fetchLeagueKey = data => {
+export const fetchLeagueData = data => {
     return {
-        type: LEAGUES_KEY, 
-        payload: data 
-    }
-}
-
-export const fetchLeaguesName = data => {
-    return {
-        type: LEAGUES_NAME, 
-        payload: data 
-    }
-}
-
-export const fetchLeaguesCountry = data => {
-    return {
-        type: LEAGUES_COUNTRY, 
-        payload: data 
+        type: LEAGUE_DATA, 
+        payload: data, 
     }
 }
 
@@ -50,18 +36,7 @@ export const fetchLeagues = () => {
         .then(res => {
             const users = res.data; 
 
-            var leagueKey = []; 
-            var leagueName = []; 
-            var leagueCountry = []; 
-             
-            for (var i = 0; i < users.length; i++) {
-                leagueKey.push(users[i].Key); 
-                leagueName.push(users[i].Name); 
-                leagueCountry.push(users[i].AreaName); 
-            }
-            dispatch(fetchLeagueKey(leagueKey)); 
-            dispatch(fetchLeaguesName(leagueName)); 
-            dispatch(fetchLeaguesCountry(leagueCountry)); 
+            dispatch(fetchLeagueData(users)); 
         })
         .catch(err => {
             const errMsg = err.message; 

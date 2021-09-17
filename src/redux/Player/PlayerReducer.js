@@ -1,18 +1,9 @@
-import { FETCH_PLAYER_REQUEST, FETCH_PLAYER_FAILURE, PLAYER_ID, PLAYER_NAME, 
-         PLAYER_LOGO, PLAYER_NUMBER, PLAYER_FOOT, PLAYER_NATIONALITY, 
-         PLAYER_WEIGHT, PLAYER_HEIGHT } from './PlayerTypes'
+import { FETCH_PLAYER_REQUEST, FETCH_PLAYER_FAILURE, PLAYER_DATA } from './PlayerTypes'
 
 const initialState = {
     loading: false, 
     error: '', 
-    playerid: '', 
-    playername: '', 
-    playerlogo: '', 
-    playernumber: '', 
-    playerfoot: '', 
-    playernationality: '', 
-    playerweight: '', 
-    playerheight: '', 
+    data: [], 
 }
 
 const playerReducer = (state = initialState, action) => {
@@ -30,60 +21,12 @@ const playerReducer = (state = initialState, action) => {
                 error: action.payload, 
             }
 
-        case PLAYER_ID: 
+        case PLAYER_DATA: 
             return {
                 ...state, 
                 loading: false, 
-                playerid: action.payload, 
-            }
-
-        case PLAYER_NAME: 
-            return {
-                ...state, 
-                loading: false, 
-                playername: action.payload, 
-            }
-
-        case PLAYER_LOGO:
-            return {
-                ...state, 
-                loading: false, 
-                playerlogo: action.payload, 
-            }
-
-        case PLAYER_NUMBER: 
-            return {
-                ...state, 
-                loading: false, 
-                playernumber: action.payload, 
-            }
-
-        case PLAYER_FOOT: 
-            return {
-                ...state, 
-                loading: false, 
-                playerfoot: action.payload, 
-            }
-
-        case PLAYER_NATIONALITY: 
-            return {
-                ...state, 
-                loading: false, 
-                playernationality: action.payload, 
-            }
-
-        case PLAYER_WEIGHT: 
-            return {
-                ...state, 
-                loading: false, 
-                playerweight: action.payload, 
-            }
-
-        case PLAYER_HEIGHT: 
-            return {
-                ...state, 
-                loading: false, 
-                playerheight: action.payload, 
+                data: action.payload, 
+                error: '', 
             }
 
         default: return state 
