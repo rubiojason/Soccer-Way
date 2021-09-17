@@ -255,8 +255,7 @@ function DateForMatchesPage( { dmError, fetchDateMatches, dmData, fetchTeams, dm
 
                                     : 
 
-                                    <div className="date-matches-team-div" key={y}>
-                                        <button onClick={() => console.log(dmData)}>Click Me</button>
+                                    <div className="date-matches-team-div" key={y}>]
                                         <div className="date-matches-2">
                                             <div className="left-side">
                                                 <HandleHomeImg schedule={x} />
