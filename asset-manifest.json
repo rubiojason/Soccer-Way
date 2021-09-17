@@ -1,26 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f3a61e7.chunk.css",
-    "main.js": "/static/js/main.1c98668a.chunk.js",
-    "main.js.map": "/static/js/main.1c98668a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.eab78589.js",
-    "runtime-main.js.map": "/static/js/runtime-main.eab78589.js.map",
-    "static/css/2.0238b3f8.chunk.css": "/static/css/2.0238b3f8.chunk.css",
-    "static/js/2.eff49b4a.chunk.js": "/static/js/2.eff49b4a.chunk.js",
-    "static/js/2.eff49b4a.chunk.js.map": "/static/js/2.eff49b4a.chunk.js.map",
-    "static/js/3.ad538cbe.chunk.js": "/static/js/3.ad538cbe.chunk.js",
-    "static/js/3.ad538cbe.chunk.js.map": "/static/js/3.ad538cbe.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.0238b3f8.chunk.css.map": "/static/css/2.0238b3f8.chunk.css.map",
-    "static/css/main.8f3a61e7.chunk.css.map": "/static/css/main.8f3a61e7.chunk.css.map",
-    "static/js/2.eff49b4a.chunk.js.LICENSE.txt": "/static/js/2.eff49b4a.chunk.js.LICENSE.txt",
-    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
+    "main.css": "/Soccer-Way/static/css/main.ad8332b6.chunk.css",
+    "main.js": "/Soccer-Way/static/js/main.69407989.chunk.js",
+    "main.js.map": "/Soccer-Way/static/js/main.69407989.chunk.js.map",
+    "runtime-main.js": "/Soccer-Way/static/js/runtime-main.73cc66ad.js",
+    "runtime-main.js.map": "/Soccer-Way/static/js/runtime-main.73cc66ad.js.map",
+    "static/css/2.e6975b45.chunk.css": "/Soccer-Way/static/css/2.e6975b45.chunk.css",
+    "static/js/2.10c541c0.chunk.js": "/Soccer-Way/static/js/2.10c541c0.chunk.js",
+    "static/js/2.10c541c0.chunk.js.map": "/Soccer-Way/static/js/2.10c541c0.chunk.js.map",
+    "static/js/3.1a876e6e.chunk.js": "/Soccer-Way/static/js/3.1a876e6e.chunk.js",
+    "static/js/3.1a876e6e.chunk.js.map": "/Soccer-Way/static/js/3.1a876e6e.chunk.js.map",
+    "index.html": "/Soccer-Way/index.html",
+    "static/css/2.e6975b45.chunk.css.map": "/Soccer-Way/static/css/2.e6975b45.chunk.css.map",
+    "static/css/main.ad8332b6.chunk.css.map": "/Soccer-Way/static/css/main.ad8332b6.chunk.css.map",
+    "static/js/2.10c541c0.chunk.js.LICENSE.txt": "/Soccer-Way/static/js/2.10c541c0.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/Soccer-Way/static/media/slick.c94f7671.ttf",
+    "static/media/leaguecontent.scss": "/Soccer-Way/static/media/soccer_img.89b4f35b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.eab78589.js",
-    "static/css/2.0238b3f8.chunk.css",
-    "static/js/2.eff49b4a.chunk.js",
-    "static/css/main.8f3a61e7.chunk.css",
-    "static/js/main.1c98668a.chunk.js"
+    "static/js/runtime-main.73cc66ad.js",
+    "static/css/2.e6975b45.chunk.css",
+    "static/js/2.10c541c0.chunk.js",
+    "static/css/main.ad8332b6.chunk.css",
+    "static/js/main.69407989.chunk.js"
   ]
 }
