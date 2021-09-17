@@ -16,7 +16,7 @@ function PageContainer() {
             <BrowserRouter>
                 <Switch>
 
-                    <Redirect exact from="/Soccer-Way" to="/Soccer-Way" />
+                    <Redirect exact from="/SoccerWay" to="/Soccer-Way" />
 
                     <Route path="/Soccer-Way" exact component={MainPage} />
 
