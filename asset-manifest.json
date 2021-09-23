@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Soccer-Way/static/css/main.ad8332b6.chunk.css",
-    "main.js": "/Soccer-Way/static/js/main.69407989.chunk.js",
-    "main.js.map": "/Soccer-Way/static/js/main.69407989.chunk.js.map",
+    "main.js": "/Soccer-Way/static/js/main.4ee429e0.chunk.js",
+    "main.js.map": "/Soccer-Way/static/js/main.4ee429e0.chunk.js.map",
     "runtime-main.js": "/Soccer-Way/static/js/runtime-main.73cc66ad.js",
     "runtime-main.js.map": "/Soccer-Way/static/js/runtime-main.73cc66ad.js.map",
     "static/css/2.e6975b45.chunk.css": "/Soccer-Way/static/css/2.e6975b45.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.e6975b45.chunk.css",
     "static/js/2.10c541c0.chunk.js",
     "static/css/main.ad8332b6.chunk.css",
-    "static/js/main.69407989.chunk.js"
+    "static/js/main.4ee429e0.chunk.js"
   ]
 }
